@@ -1,8 +1,9 @@
-require('dotenv').config()
-console.log(process.env.SUPABASE_KEY)
-const express = require('express');
-const bodyParser = require('body-parser');
-const fs = require('fs');
+import { config } from 'dotenv';
+
+config();
+
+import express from 'express'
+import bodyParser from 'body-parser'
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,17 +13,7 @@ app.use(express.static('public'));
 
 app.post('/api/confirm', (req, res) => {
     const name = req.body.name;
-    if (name) {
-        fs.appendFile('confirmations.txt', `${name}\n`, err => {
-            if (err) {
-                res.status(500).send('Erro ao salvar confirmação');
-            } else {
-                res.status(200).send('Confirmação recebida');
-            }
-        });
-    } else {
-        res.status(400).send('Nome é obrigatório');
-    }
+
 });
 
 app.listen(PORT, () => {
