@@ -1,3 +1,5 @@
+require('dotenv').config()
+console.log(process.env.SUPABASE_KEY)
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
