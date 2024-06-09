@@ -17,14 +17,15 @@ app.post('/api/confirm', async (req, res) => {
     console.log(req.body)
     const name = req.body.name;
 
-    supabase.from('confirmados').insert([{ name }]).then(({ data, error }) => {
-        if (error) {
-            console.error(error);
-            res.status(500).send('Ocorreu um erro ao confirmar a presença.');
-        } else {
-            res.status(200).send('Presença confirmada com sucesso!');
-        }
-    });
+    const tabela = supabase.from('confirmados')
+
+    try {
+        await tabela.insert({ name });
+        return res.status(201).send('Presença confirmada com sucesso!');
+    } catch (error) {
+        return res.status(500).send('Ocorreu um erro. Tente novamente.');
+    }
+
 });
 
 app.listen(PORT, () => {
