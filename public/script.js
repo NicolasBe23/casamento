@@ -1,4 +1,4 @@
-document.getElementById('rsvpForm').addEventListener('submit', async function(event) {
+document.getElementById('rsvpForm').addEventListener('submit', async function (event) {
     event.preventDefault();
     const name = document.getElementById('name').value;
     console.log(name)
@@ -9,7 +9,7 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(ev
         },
         body: JSON.stringify({ name })
     });
-
+    console.log(response)
     if (response.ok) {
         document.getElementById('confirmationMessage').textContent = 'Presença confirmada com sucesso!';
         document.getElementById('rsvpForm').reset();

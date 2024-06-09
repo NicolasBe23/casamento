@@ -16,10 +16,15 @@ app.use(express.static('public'));
 app.post('/api/confirm', async (req, res) => {
     console.log(req.body)
     const name = req.body.name;
-    await supabase.from("confirmados").upsert({
-        name:name
-        
-    })
+
+    supabase.from('confirmados').insert([{ name }]).then(({ data, error }) => {
+        if (error) {
+            console.error(error);
+            res.status(500).send('Ocorreu um erro ao confirmar a presença.');
+        } else {
+            res.status(200).send('Presença confirmada com sucesso!');
+        }
+    });
 });
 
 app.listen(PORT, () => {
