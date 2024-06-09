@@ -1,6 +1,8 @@
 import { config } from 'dotenv';
-
 config();
+
+import { supabase } from './supabase.js';
+
 
 import express from 'express'
 import bodyParser from 'body-parser'
@@ -13,7 +15,6 @@ app.use(express.static('public'));
 
 app.post('/api/confirm', (req, res) => {
     const name = req.body.name;
-
 });
 
 app.listen(PORT, () => {
