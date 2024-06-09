@@ -13,8 +13,13 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-app.post('/api/confirm', (req, res) => {
+app.post('/api/confirm', async (req, res) => {
+    console.log(req.body)
     const name = req.body.name;
+    await supabase.from("confirmados").upsert({
+        name:name
+        
+    })
 });
 
 app.listen(PORT, () => {

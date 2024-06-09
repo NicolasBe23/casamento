@@ -1,7 +1,7 @@
 document.getElementById('rsvpForm').addEventListener('submit', async function(event) {
     event.preventDefault();
     const name = document.getElementById('name').value;
-    
+    console.log(name)
     const response = await fetch('/api/confirm', {
         method: 'POST',
         headers: {
