@@ -20,7 +20,7 @@ app.post('/api/confirm', async (req, res) => {
     const tabela = supabase.from('confirmados')
 
     try {
-        await tabela.insert({ name });
+        await tabela.upsert({ name });
         return res.status(201).send('Presença confirmada com sucesso!');
     } catch (error) {
         return res.status(500).send('Ocorreu um erro. Tente novamente.');
