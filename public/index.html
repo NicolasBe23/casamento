@@ -5,17 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmação de Presença</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400&family=Poppins:wght@600&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400&display=swap');
-
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #f8f8f8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #6bafd6;
+            color: white;
+        }
+        .navbar-left {
+            font-size: 24px;
+            font-weight: 600; 
+        }
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-right a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: 600; 
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .navbar-right a:hover {
+            background-color: white;
+            color: #6bafd6;
         }
 
         .container {
@@ -26,6 +53,7 @@
             text-align: center;
             max-width: 400px;
             width: 100%;
+            margin: 100px auto 0 auto; 
         }
 
         h1 {
@@ -44,7 +72,7 @@
         label {
             margin-bottom: 10px;
             font-size: 18px;
-            color: #555;
+            color: #6bafd6;
         }
 
         input {
@@ -77,11 +105,25 @@
             font-size: 16px;
         }
 
+        .page-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 100px); 
+        }
     </style>
-    
 </head>
 <body>
-    
+    <nav class="navbar">
+        <div class="navbar-left">Janaina e Nicolas</div>
+        <div class="navbar-right">
+            <a href="home.html">Home</a>
+            <a href="">Lista de Presentes</a>
+            <a href="">Localização</a>
+            <a href="">Nossa História</a>
+            <a href="index.html">Confirmar Presença</a>
+        </div>
+    </nav>
     <div class="container">
         <h1>Nosso Casamento</h1>
         <form id="rsvpForm">
